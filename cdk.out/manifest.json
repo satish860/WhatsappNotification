@@ -1,0 +1,142 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "TemplateStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "TemplateStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "TemplateStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "TemplateStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a8ef41a38f3029674ec59e85d186005da29a1f1fad4b4bc66bcb46c070ba6597.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "TemplateStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "TemplateStack.assets"
+      ],
+      "metadata": {
+        "/TemplateStack/Template/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TemplateServiceRole382AEBEF"
+          }
+        ],
+        "/TemplateStack/Template/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Template576A9730"
+          }
+        ],
+        "/TemplateStack/Endpoint/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointEEF1FD8F"
+          }
+        ],
+        "/TemplateStack/Endpoint/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointCloudWatchRoleC3C64E0F"
+          }
+        ],
+        "/TemplateStack/Endpoint/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointAccountB8304247"
+          }
+        ],
+        "/TemplateStack/Endpoint/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeployment318525DA2fe1084836cd89c7526795ce4fa32798"
+          }
+        ],
+        "/TemplateStack/Endpoint/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeploymentStageprodB78BEEA0"
+          }
+        ],
+        "/TemplateStack/Endpoint/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Endpoint8024A810"
+          }
+        ],
+        "/TemplateStack/Endpoint/Default/template/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointtemplateBC8E7DC2"
+          }
+        ],
+        "/TemplateStack/Endpoint/Default/template/POST/ApiPermission.TemplateStackEndpoint65172685.POST..template": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointtemplatePOSTApiPermissionTemplateStackEndpoint65172685POSTtemplate281BD172"
+          }
+        ],
+        "/TemplateStack/Endpoint/Default/template/POST/ApiPermission.Test.TemplateStackEndpoint65172685.POST..template": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointtemplatePOSTApiPermissionTestTemplateStackEndpoint65172685POSTtemplate8CF6FA4F"
+          }
+        ],
+        "/TemplateStack/Endpoint/Default/template/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointtemplatePOSTD640CF63"
+          }
+        ],
+        "/TemplateStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/TemplateStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/TemplateStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/TemplateStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "TemplateStack"
+    }
+  }
+}
